@@ -17,13 +17,13 @@ The local site runs at `http://localhost:3000` with the native Next.js server.
 
 ## Scripts
 
-- `npm run dev` — development server
-- `npm run build` — production build
-- `npm run typecheck` — strict TypeScript check
-- `npm run lint` — ESLint and Next.js rules
-- `npm run test` / `npm run test:unit` — unit and component-contract tests
-- `npm run test:e2e` — Playwright smoke, interaction, responsive, and accessibility checks
-- `npm run verify` — typecheck, lint, unit tests, and production build
+- `npm run dev`: development server
+- `npm run build`: production build
+- `npm run typecheck`: strict TypeScript check
+- `npm run lint`: ESLint and Next.js rules
+- `npm run test` / `npm run test:unit`: unit and component-contract tests
+- `npm run test:e2e`: Playwright smoke, interaction, responsive, and accessibility checks
+- `npm run verify`: typecheck, lint, unit tests, and production build
 
 Install the Playwright browser once when needed:
 
@@ -33,12 +33,12 @@ npx playwright install chromium
 
 ## Content and components
 
-- `app/` — route layouts, page metadata, sitemap, robots, and the custom not-found page
-- `components/` — shared layout, product visual, interaction, matrix, timeline, and form components
-- `content/site.ts` — navigation, roles, features, FAQ, workflows, and capability data
-- `content/legal.ts` — deliberately non-authoritative privacy and terms draft structures
-- `lib/site-config.ts` — canonical URL and shared metadata helpers
-- `lib/demo.ts` — Zod schema and typed demo-submission adapter
+- `app/`: route layouts, page metadata, sitemap, robots, and the custom not-found page
+- `components/`: shared layout, product visual, interaction, matrix, timeline, and form components
+- `content/site.ts`: navigation, roles, features, FAQ, workflows, and capability data
+- `content/legal.ts`: deliberately non-authoritative privacy and terms draft structures
+- `lib/site-config.ts`: canonical URL and shared metadata helpers
+- `lib/demo.ts`: Zod schema and typed demo-submission adapter
 
 Legal pages are visibly marked as drafts and must be replaced with approved text before a public launch.
 

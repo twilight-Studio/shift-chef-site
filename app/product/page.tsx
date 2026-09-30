@@ -17,7 +17,7 @@ export default function ProductPage() {
       <PageHero
         eyebrow="Product"
         title="Everything around service, connected."
-        lead="ShiftChef brings scheduling, team operations, communication, and review into one role-aware mobile workspace—without turning everyday work into admin work."
+        lead="ShiftChef brings scheduling, team operations, communication, and review into one role-aware mobile workspace without turning everyday work into admin work."
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <ButtonLink href="/contact" variant="inverse">Book a demo</ButtonLink>
@@ -59,7 +59,7 @@ export default function ProductPage() {
           <SectionHeading
             eyebrow="One connected operating rhythm"
             title="The right context at every stage."
-            description="ShiftChef keeps planning, service work, and review distinct—without making them separate stories."
+            description="ShiftChef keeps planning, service work, and review distinct without making them separate stories."
           />
           <div className="rhythm-grid">
             {productRhythm.map((column, index) => (

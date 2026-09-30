@@ -38,7 +38,7 @@ export function createPageMetadata({ title, description, path }: PageMetadata): 
           url: absoluteUrl("/social/shiftchef-social.png"),
           width: 1200,
           height: 630,
-          alt: "ShiftChef — Run service, not spreadsheets.",
+          alt: "ShiftChef: Run service, not spreadsheets.",
         },
       ],
     },

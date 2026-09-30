@@ -25,7 +25,7 @@ export default function HowItWorksPage() {
           <SectionHeading
             eyebrow="Friday dinner service"
             title="Who acts, what they see, and what remains."
-            description="The example is fictional and contains no personal data. Availability stays separate from assignment, and acknowledgments confirm visibility—not attendance."
+            description="The example is fictional and contains no personal data. Availability stays separate from assignment, and acknowledgments confirm visibility, not attendance."
           />
           <div className="mt-12"><WorkflowTimeline detailed /></div>
         </Container>
