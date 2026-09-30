@@ -4,7 +4,8 @@ Public marketing and lead-generation site for ShiftChef, a hospitality schedulin
 
 ## Setup
 
-Requirements: Node.js 22.13 or newer and npm.
+Requirements: Node.js 22.13 or newer and npm. The production deployment uses
+Node.js 22 on AWS Amplify.
 
 ```sh
 npm install
@@ -12,7 +13,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-The local site runs at `http://127.0.0.1:5173` in the portable Sites profile.
+The local site runs at `http://localhost:3000` with the native Next.js server.
 
 ## Scripts
 
@@ -59,7 +60,10 @@ ShiftChef coordinates scheduling and the work around service. It is not presente
 
 ## Deployment checklist
 
-1. Set the verified `NEXT_PUBLIC_SITE_URL`.
+AWS Amplify reads the committed `amplify.yml`, builds with native Next.js, and
+deploys the `.next` output through Amplify Hosting compute.
+
+1. Set the verified `NEXT_PUBLIC_SITE_URL` in the Amplify environment variables.
 2. Connect and approve the form endpoint, or leave the form in preview mode.
 3. Replace the privacy, terms, and consent drafts with approved copy.
 4. Run `npm run verify` and `npm run test:e2e`.
