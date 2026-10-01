@@ -1,7 +1,18 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site-config";
 
-const routes = ["", "/product", "/roles", "/how-it-works", "/security", "/about", "/contact", "/privacy", "/terms"];
+const routes = [
+  "",
+  "/product",
+  "/roles",
+  "/how-it-works",
+  "/security",
+  "/about",
+  "/contact",
+  "/support",
+  "/privacy-policy",
+  "/terms",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({

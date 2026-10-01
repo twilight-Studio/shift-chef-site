@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const routes = ["/", "/product", "/roles", "/how-it-works", "/security", "/about", "/contact", "/privacy", "/terms"];
+const routes = ["/", "/product", "/roles", "/how-it-works", "/security", "/about", "/contact", "/support", "/privacy-policy", "/terms"];
 const widths = [360, 390, 768, 1024, 1440];
 
 test("every page remains inside the viewport at target widths", async ({ page }) => {
@@ -55,6 +55,7 @@ test("core content remains available at 200% text size", async ({ page }) => {
     { route: "/", heading: "Run service, not spreadsheets." },
     { route: "/product", heading: "Everything around service, connected." },
     { route: "/contact", heading: "See ShiftChef around your operation." },
+    { route: "/support", heading: "Get the right help without losing service context." },
   ];
 
   for (const { route, heading } of representativePages) {

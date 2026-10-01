@@ -48,3 +48,11 @@ test("the not-found page returns visitors to working routes", async ({ page }) =
   await page.getByRole("link", { name: "Explore the product" }).click();
   await expect(page).toHaveURL(/\/product$/);
 });
+
+test("the legacy privacy route redirects to the canonical privacy policy", async ({ page }) => {
+  await page.goto("/privacy");
+  await expect(page).toHaveURL(/\/privacy-policy$/);
+  await expect(
+    page.getByRole("heading", { name: "Privacy information belongs in plain sight." }),
+  ).toBeVisible();
+});

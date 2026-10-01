@@ -48,6 +48,8 @@ Legal pages are visibly marked as drafts and must be replaced with approved text
 
 `NEXT_PUBLIC_DEMO_ENDPOINT` is the only demo-form delivery setting. Leave it empty to keep the form in honest preview mode: validation still works, but the UI says nothing was sent. Configure only an approved HTTPS endpoint that accepts the typed JSON payload. The website never logs personal form values.
 
+`NEXT_PUBLIC_SUPPORT_EMAIL` adds a direct support email link to `/support`. Leave it empty to show self-service guidance without inventing an inbox or sending support details through the demo form.
+
 ## Assets
 
 Official logo and app-icon files are copied from the ShiftChef mobile repository into `public/brand/`. Public product images in `public/screenshots/` are limited to the privacy-safe demonstration screenshots documented in the mobile user guide. Their source aspect ratios are preserved with `next/image`; the homepage LCP candidate alone receives priority loading.
@@ -65,6 +67,7 @@ deploys the `.next` output through Amplify Hosting compute.
 
 1. Set the verified `NEXT_PUBLIC_SITE_URL` in the Amplify environment variables.
 2. Connect and approve the form endpoint, or leave the form in preview mode.
-3. Replace the privacy, terms, and consent drafts with approved copy.
-4. Run `npm run verify` and `npm run test:e2e`.
-5. Review every route at 360, 390, 768, 1024, and 1440 CSS pixels.
+3. Add a verified `NEXT_PUBLIC_SUPPORT_EMAIL`, or retain the self-service support page without direct email contact.
+4. Replace the privacy, terms, and consent drafts with approved copy.
+5. Run `npm run verify` and `npm run test:e2e`.
+6. Review every route at 360, 390, 768, 1024, and 1440 CSS pixels.

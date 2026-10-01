@@ -8,6 +8,12 @@ describe("site content contract", () => {
     const links = [...mainNavigation, ...Object.values(footerNavigation).flat()];
     expect(links.every((link) => link.href.startsWith("/"))).toBe(true);
     expect(new Set(mainNavigation.map((link) => link.href)).size).toBe(mainNavigation.length);
+    expect(links).toEqual(
+      expect.arrayContaining([
+        { label: "Support", href: "/support" },
+        { label: "Privacy policy draft", href: "/privacy-policy" },
+      ]),
+    );
   });
 
   it("renders every role and a text status in both matrix representations", () => {

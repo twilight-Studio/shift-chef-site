@@ -50,10 +50,11 @@ export const footerNavigation: Record<string, NavItem[]> = {
   ],
   Resources: [
     { label: "Security", href: "/security" },
+    { label: "Support", href: "/support" },
     { label: "Book a demo", href: "/contact" },
   ],
   Legal: [
-    { label: "Privacy draft", href: "/privacy" },
+    { label: "Privacy policy draft", href: "/privacy-policy" },
     { label: "Terms draft", href: "/terms" },
   ],
 };

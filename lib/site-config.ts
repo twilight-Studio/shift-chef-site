@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 
 const fallbackSiteUrl = "https://shiftchef-service-operations.aqua-bay-9211.chatgpt.site";
+const configuredSupportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim();
+const supportEmail =
+  configuredSupportEmail &&
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(configuredSupportEmail)
+    ? configuredSupportEmail
+    : undefined;
 
 export const siteConfig = {
   name: "ShiftChef",
@@ -9,6 +15,7 @@ export const siteConfig = {
     "Plan shifts, coordinate teams, manage service work, and review outcomes in one role-aware hospitality workspace.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || fallbackSiteUrl).replace(/\/$/, ""),
   demoEndpoint: process.env.NEXT_PUBLIC_DEMO_ENDPOINT,
+  supportEmail,
 } as const;
 
 export function absoluteUrl(path = "/") {
