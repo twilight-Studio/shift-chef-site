@@ -64,7 +64,7 @@ ShiftChef coordinates scheduling and the work around service. It is not presente
 
 Pushes to `main` are verified, built as a Next.js standalone server, and deployed
 by `.github/workflows/deploy.yml`. PM2 runs the release on `127.0.0.1:3002`, and
-Nginx terminates HTTPS for `shiftchef.185-209-222-223.sslip.io`.
+Nginx terminates HTTPS for `shiftchef.app` and `www.shiftchef.app`.
 
 The workflow requires these GitHub Actions secrets:
 

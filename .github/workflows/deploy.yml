@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      NEXT_PUBLIC_SITE_URL: https://shiftchef.185-209-222-223.sslip.io
+      NEXT_PUBLIC_SITE_URL: https://shiftchef.app
       NEXT_PUBLIC_DEMO_ENDPOINT: ""
       NEXT_PUBLIC_SUPPORT_EMAIL: ""
 
