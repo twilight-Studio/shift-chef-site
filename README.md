@@ -60,6 +60,22 @@ The generated social-sharing card is `public/social/shiftchef-social.png` (1200Ã
 
 ShiftChef coordinates scheduling and the work around service. It is not presented as a clock-in/out, attendance, break, timesheet, worked-hours verification, payroll, or attendance-reporting product. Availability is not an assignment, and assignment acknowledgment is not proof of attendance.
 
+## VPS deployment
+
+Pushes to `main` are verified, built as a Next.js standalone server, and deployed
+by `.github/workflows/deploy.yml`. PM2 runs the release on `127.0.0.1:3002`, and
+Nginx terminates HTTPS for `shiftchef.185-209-222-223.sslip.io`.
+
+The workflow requires these GitHub Actions secrets:
+
+- `VPS_HOST`
+- `VPS_USER`
+- `VPS_SSH_KEY`
+- `VPS_HOST_KEY`
+
+Releases live under `/var/www/shiftchef/releases`; the `current` symlink makes
+activation atomic, and the deployment script keeps five releases for rollback.
+
 ## Deployment checklist
 
 AWS Amplify reads the committed `amplify.yml`, builds with native Next.js, and
