@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+
 import { CapabilityMatrix } from "@/components/capability-matrix";
-import { ButtonLink, Container, DarkCtaPanel, PageHero, SectionHeading } from "@/components/primitives";
-import { audienceStories, roles } from "@/content/site";
+import { RoleTabs } from "@/components/interactive";
+import { ButtonLink, Container, Eyebrow } from "@/components/primitives";
 import { createPageMetadata } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
@@ -13,57 +14,41 @@ export const metadata: Metadata = createPageMetadata({
 export default function RolesPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Roles"
-        title="Give everyone the view their work requires."
-        lead="Access roles control what someone can do. Job titles describe the work they are qualified to perform. ShiftChef keeps those two ideas separate."
-      >
-        <div className="mt-8"><ButtonLink href="/contact" variant="inverse">Book a demo</ButtonLink></div>
-      </PageHero>
-
-      <section className="section-shell">
+      <section className="roles-revamp-hero">
         <Container>
-          <SectionHeading
-            eyebrow="Six access levels"
-            title="Useful by default. Scoped by responsibility."
-            description="Roles may be combined, and exact visibility also depends on workplace scope and the API’s authorization decisions."
-          />
-          <div className="role-card-grid">
-            {roles.map((role, index) => (
-              <article className="role-card" key={role.id}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h2>{role.name}</h2>
-                <p>{role.summary}</p>
-                <ul>{role.focus.map((item) => <li key={item}>{item}</li>)}</ul>
-              </article>
-            ))}
+          <Eyebrow>Roles</Eyebrow>
+          <h1>Give everyone the view their work requires.</h1>
+          <p>Access roles define what people can do. Job titles describe the work they are qualified to perform. Keep both clear, with the right workplace scope.</p>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
+        </Container>
+      </section>
+
+      <section className="roles-page-showcase roles-showcase">
+        <Container>
+          <p className="micro-label">The right view for the work</p>
+          <h2>One team. The right tools for each role.</h2>
+          <RoleTabs />
+          <p className="roles-note">Role previews illustrate capabilities. See the comparison for access details.</p>
+        </Container>
+      </section>
+
+      <section className="roles-matrix-section">
+        <Container>
+          <p className="micro-label">Who can do what</p>
+          <h2>A clearer view of responsibility.</h2>
+          <CapabilityMatrix />
+          <p className="roles-matrix-note">This summary explains the operating model. Workplace scope and server-side permissions always apply.</p>
+        </Container>
+      </section>
+
+      <section className="roles-cta-section">
+        <Container>
+          <div className="roles-cta">
+            <div><h2>Make room for<br />better service.</h2><p>See how ShiftChef fits the way your team works.</p></div>
+            <ButtonLink href="/contact" variant="secondary">Book a demo</ButtonLink>
           </div>
         </Container>
       </section>
-
-      <section className="section-shell role-stories-section">
-        <Container>
-          <SectionHeading eyebrow="In practice" title="Four perspectives on the same operation." />
-          <div className="audience-story-grid">
-            {audienceStories.map((story) => (
-              <article key={story.title}><h3>{story.title}</h3><p>{story.body}</p></article>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="section-shell">
-        <Container>
-          <SectionHeading
-            eyebrow="Capability matrix"
-            title="A clearer view of who can do what."
-            description="These summaries explain the operating model, not a substitute for authorization. Workplace scope and server-side decisions always apply."
-          />
-          <div className="mt-10"><CapabilityMatrix /></div>
-        </Container>
-      </section>
-
-      <DarkCtaPanel title="Show every role what matters next." body="See how role and workplace scope can fit the way your operation already works." />
     </>
   );
 }

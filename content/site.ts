@@ -41,19 +41,17 @@ export const mainNavigation: NavItem[] = [
 export const footerNavigation: Record<string, NavItem[]> = {
   Product: [
     { label: "Product overview", href: "/product" },
-    { label: "Role-aware access", href: "/roles" },
-    { label: "Service workflow", href: "/how-it-works" },
+    { label: "Roles and access", href: "/roles" },
+    { label: "How it works", href: "/how-it-works" },
   ],
   Company: [
     { label: "About ShiftChef", href: "/about" },
     { label: "Contact", href: "/contact" },
+    { label: "Book a demo", href: "/contact" },
   ],
   Resources: [
     { label: "Security", href: "/security" },
     { label: "Support", href: "/support" },
-    { label: "Book a demo", href: "/contact" },
-  ],
-  Legal: [
     { label: "Privacy policy draft", href: "/privacy-policy" },
     { label: "Terms draft", href: "/terms" },
   ],

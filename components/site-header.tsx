@@ -82,7 +82,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <ButtonLink href="/contact" variant="ghost">Contact</ButtonLink>
+          <Link className="nav-link" href="/contact">Contact</Link>
           <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
 

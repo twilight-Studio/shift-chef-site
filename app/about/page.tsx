@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Check, X } from "lucide-react";
-import { ButtonLink, Container, DarkCtaPanel, PageHero, SectionHeading } from "@/components/primitives";
+
+import { ButtonLink, Container, Eyebrow } from "@/components/primitives";
 import { principles } from "@/content/site";
 import { createPageMetadata } from "@/lib/site-config";
 
@@ -10,61 +10,26 @@ export const metadata: Metadata = createPageMetadata({
   path: "/about",
 });
 
+const isItems = ["Roster planning and availability", "Requests, tasks and checklists", "Chats, announcements and handover", "Feedback, reports and change history"];
+const isNotItems = ["No clock-in or clock-out", "No attendance or break tracking", "No timesheets or worked-hours verification", "No payroll processing"];
+
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="About"
-        title="Hospitality work moves fast. The tools around it should create calm."
-        lead="ShiftChef is being built around a simple idea: every person should know what matters now, what they can do next, and how their work connects to the wider service."
-      >
-        <div className="mt-8"><ButtonLink href="/contact" variant="inverse">Book a demo</ButtonLink></div>
-      </PageHero>
+      <section className="simple-revamp-hero about-revamp-hero"><Container><Eyebrow>About</Eyebrow><h1>Hospitality work moves fast. The tools around it should create calm.</h1><p>ShiftChef is being built around a simple idea: every person should know what matters now, what they can do next, and how their work connects to the wider service.</p><ButtonLink href="/contact">Book a demo</ButtonLink></Container></section>
 
-      <section className="section-shell">
-        <Container>
-          <SectionHeading eyebrow="Product principles" title="Clarity that holds up under pressure." />
-          <div className="principle-grid">
-            {principles.map((principle) => (
-              <article key={principle.number}><span>{principle.number}</span><h2>{principle.title}</h2><p>{principle.body}</p></article>
-            ))}
-          </div>
-        </Container>
+      <section className="about-principles-section">
+        <Container><p className="micro-label">Our approach</p><h2>Clarity that holds up under pressure.</h2><div className="about-principles-grid">{principles.map((principle) => <article key={principle.number}><span>{principle.number}</span><h3>{principle.title}</h3><p>{principle.body}</p></article>)}</div></Container>
       </section>
 
-      <section className="section-shell about-identity-section">
-        <Container>
-          <SectionHeading
-            eyebrow="A practical boundary"
-            title="Built for the work around service."
-            description="ShiftChef brings staffing decisions and service operations into one operating rhythm. It stays honest about the jobs it is not designed to do."
-          />
-          <div className="is-is-not-grid">
-            <section>
-              <p className="eyebrow text-primary">What ShiftChef is</p>
-              <h2>Scheduling and service operations</h2>
-              <ul>
-                <li><Check aria-hidden="true" /> Roster planning and availability</li>
-                <li><Check aria-hidden="true" /> Requests, tasks, and checklists</li>
-                <li><Check aria-hidden="true" /> Chats, announcements, and handover</li>
-                <li><Check aria-hidden="true" /> Feedback, reports, and change history</li>
-              </ul>
-            </section>
-            <section>
-              <p className="eyebrow text-primary">What ShiftChef is not</p>
-              <h2>Timekeeping or payroll</h2>
-              <ul>
-                <li><X aria-hidden="true" /> No clock-in or clock-out</li>
-                <li><X aria-hidden="true" /> No attendance or break tracking</li>
-                <li><X aria-hidden="true" /> No timesheets or worked-hours verification</li>
-                <li><X aria-hidden="true" /> No payroll processing</li>
-              </ul>
-            </section>
-          </div>
-        </Container>
+      <section className="about-boundary-section">
+        <Container><p className="micro-label">A practical boundary</p><h2>Built for the work around service.</h2><div className="about-boundary-grid">
+          <article><p>What ShiftChef is</p><h3>Scheduling and service operations</h3><ul>{isItems.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article><p>What ShiftChef is not</p><h3>Timekeeping or payroll</h3><ul>{isNotItems.map((item) => <li key={item}>{item}</li>)}</ul></article>
+        </div></Container>
       </section>
 
-      <DarkCtaPanel title="Create calm before the first ticket lands." body="See how ShiftChef can bring your roster, service work, and review into one clearer rhythm." />
+      <section className="simple-cta-section"><Container><div className="simple-cta"><div><h2>Make room for<br />better service.</h2><p>See how ShiftChef fits the way your team works.</p></div><ButtonLink href="/contact" variant="secondary">Book a demo</ButtonLink></div></Container></section>
     </>
   );
 }

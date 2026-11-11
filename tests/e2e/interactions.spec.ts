@@ -20,12 +20,13 @@ test("FAQ controls disclose content with the keyboard", async ({ page }) => {
   await page.goto("/#faq");
   const question = page.getByRole("button", { name: "What kinds of hospitality teams is ShiftChef for?" });
   await expect(question).toBeEnabled();
+  await expect(question).toHaveAttribute("aria-expanded", "true");
   await question.focus();
+  await page.keyboard.press("Enter");
+  await expect(question).toHaveAttribute("aria-expanded", "false");
   await page.keyboard.press("Enter");
   await expect(question).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByText(/designed for hospitality owners/i)).toBeVisible();
-  await page.keyboard.press("Enter");
-  await expect(question).toHaveAttribute("aria-expanded", "false");
 });
 
 test("role selector follows tab keyboard conventions", async ({ page }) => {

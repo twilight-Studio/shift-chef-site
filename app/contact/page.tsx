@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+
 import { DemoForm } from "@/components/demo-form";
-import { Container, PageHero, SectionHeading } from "@/components/primitives";
+import { Container, Eyebrow } from "@/components/primitives";
 import { contactCoverage } from "@/content/site";
 import { createPageMetadata } from "@/lib/site-config";
 
@@ -14,23 +14,11 @@ export const metadata: Metadata = createPageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Book a demo"
-        title="See ShiftChef around your operation."
-        lead="Tell us how your team plans and runs service. We’ll use the conversation to focus the demo on the roles, workplaces, and workflows that matter to you."
-      />
-
-      <section className="section-shell">
-        <Container className="contact-grid">
-          <aside className="contact-aside">
-            <SectionHeading eyebrow="What we’ll cover" title="A useful conversation, shaped around your service." />
-            <ul>{contactCoverage.map((item) => <li key={item}><Check aria-hidden="true" /> {item}</li>)}</ul>
-            <div className="contact-note">
-              <p className="eyebrow text-primary">No invented handoff</p>
-              <p>We only show a success message after a configured endpoint confirms delivery. Until then, the form clearly stays in preview mode and sends nothing.</p>
-            </div>
-          </aside>
-          <DemoForm />
+      <section className="simple-revamp-hero contact-revamp-hero"><Container><Eyebrow>Contact</Eyebrow><h1>See ShiftChef around your operation.</h1><p>Tell us how your team plans and runs service. We’ll use the conversation to focus the demo on the roles, workplaces, and workflows that matter to you.</p></Container></section>
+      <section className="contact-revamp-section">
+        <Container className="contact-revamp-grid">
+          <aside><p className="micro-label">What we’ll cover</p><h2>A useful conversation, shaped around your service.</h2><ol>{contactCoverage.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></aside>
+          <div className="contact-form-wrap"><h2>Book your demo</h2><p>Tell us about your operation. We’ll focus the conversation on what matters to your team.</p><DemoForm /></div>
         </Container>
       </section>
     </>

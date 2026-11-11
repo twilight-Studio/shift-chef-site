@@ -52,7 +52,7 @@ test("product screenshots preserve their intrinsic aspect ratio", async ({ page 
 test("core content remains available at 200% text size", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const representativePages = [
-    { route: "/", heading: "Run service, not spreadsheets." },
+    { route: "/", heading: "Great teams. Smooth service." },
     { route: "/product", heading: "Everything around service, connected." },
     { route: "/contact", heading: "See ShiftChef around your operation." },
     { route: "/support", heading: "Get the right help without losing service context." },

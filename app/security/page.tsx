@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { CheckCircle2, FileClock, MapPin, ShieldCheck } from "lucide-react";
-import { ButtonLink, Container, DarkCtaPanel, PageHero, SectionHeading, StatusPill } from "@/components/primitives";
+
+import { ButtonLink, Container, Eyebrow } from "@/components/primitives";
 import { securityPrinciples } from "@/content/site";
 import { createPageMetadata } from "@/lib/site-config";
 
@@ -13,82 +13,42 @@ export const metadata: Metadata = createPageMetadata({
 export default function SecurityPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Security"
-        title="Access that follows responsibility."
-        lead="ShiftChef is designed around minimum-necessary access, explicit invitations, controlled sessions, and an accountable record of important operational decisions."
-      >
-        <div className="mt-8 flex flex-wrap gap-3">
-          <ButtonLink href="/contact" variant="inverse">Talk through your access model</ButtonLink>
-          <ButtonLink href="/roles" variant="secondary">Explore roles</ButtonLink>
-        </div>
-      </PageHero>
+      <section className="simple-revamp-hero"><Container><Eyebrow>Security</Eyebrow><h1>Access that follows responsibility.</h1><p>ShiftChef is designed around minimum-necessary access, explicit invitations, controlled sessions, and an accountable record of important operational decisions.</p><ButtonLink href="/contact">Book a demo</ButtonLink></Container></section>
 
-      <section className="section-shell">
+      <section className="security-principles-revamp">
         <Container>
-          <SectionHeading
-            eyebrow="Verified product principles"
-            title="A clear boundary between convenience and control."
-            description="ShiftChef does not treat a hidden button as security. The product’s permission model stays authoritative at the server, with the mobile experience reflecting only the actions a person should use."
-          />
-          <div className="security-principle-grid">
-            {securityPrinciples.map((principle) => {
-              const Icon = principle.icon;
-              return <article key={principle.title}><Icon aria-hidden="true" /><h2>{principle.title}</h2><p>{principle.body}</p></article>;
-            })}
+          <p className="micro-label">Permission-aware by design</p>
+          <h2>Clear access. Accountable decisions.</h2>
+          <div className="security-principles-grid-revamp">
+            {securityPrinciples.map((principle, index) => <article key={principle.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{principle.title}</h3><p>{principle.body}</p></article>)}
           </div>
         </Container>
       </section>
 
-      <section className="section-shell accountable-section">
-        <Container className="accountable-grid">
-          <div>
-            <SectionHeading
-              eyebrow="Designed for accountable operations"
-              title="Keep the reason beside the decision."
-              description="Important changes are easier to review when the actor, action, target, time, reason, and request reference stay together. This fictional card shows the shape of that record."
-              inverse
-            />
-            <ul className="security-note-list">
-              <li><CheckCircle2 aria-hidden="true" /> Revision reasons stay with controlled schedule changes.</li>
-              <li><CheckCircle2 aria-hidden="true" /> Cancellation paths ask for an explanation.</li>
-              <li><CheckCircle2 aria-hidden="true" /> CSV exports should travel only through approved channels.</li>
-            </ul>
-          </div>
-          <article className="history-card">
-            <div className="history-card-head"><div className="history-icon"><FileClock aria-hidden="true" /></div><div><p>Change history</p><h2>Friday Dinner Service</h2></div><StatusPill tone="lime">Recorded</StatusPill></div>
-            <dl>
-              <div><dt>Action</dt><dd>Roster revision shared</dd></div>
-              <div><dt>Actor</dt><dd>Jordan Lee · Manager</dd></div>
-              <div><dt>Reason</dt><dd>Terrace section reopened</dd></div>
-              <div><dt>Request reference</dt><dd>SC-DEMO-1042</dd></div>
-              <div><dt>Recorded</dt><dd>Friday · 16:20 local time</dd></div>
-            </dl>
-            <p className="history-disclaimer">Fictional example for illustration only.</p>
+      <section className="security-decision-section">
+        <Container className="security-decision-grid">
+          <div><p className="micro-label">Designed for review</p><h2>Keep the reason beside the decision.</h2><p>Actor, action, target, time, reason and request reference stay together so important changes can be understood later.</p><ul><li>Reasons stay with controlled revisions</li><li>Cancellations keep an explanation</li><li>Share exports through approved channels</li></ul></div>
+          <article className="decision-record-card">
+            <div><h3>Friday Dinner Service</h3><span>Recorded</span></div>
+            <dl><dt>Action</dt><dd>Roster revision shared</dd><dt>Actor</dt><dd>Jordan Lee · Manager</dd><dt>Reason</dt><dd>Terrace section reopened</dd><dt>Request reference</dt><dd>SC-DEMO-1042</dd><dt>Recorded</dt><dd>Friday · 16:20 local time</dd></dl>
+            <small>Fictional example for illustration only.</small>
           </article>
         </Container>
       </section>
 
-      <section className="section-shell">
+      <section className="security-boundary-section">
         <Container>
-          <SectionHeading
-            eyebrow="Privacy starts with the right scope"
-            title="Three records. One intentional boundary."
-            description="An account identifies the person signing in. Workspace membership defines access. A staff profile holds employment context inside that workspace. Keeping those ideas separate supports clearer decisions."
-          />
-          <div className="scope-levels">
-            <article><ShieldCheck aria-hidden="true" /><span>01</span><h2>Account</h2><p>Personal sign-in, verification, password recovery, and device sessions.</p></article>
-            <article><MapPin aria-hidden="true" /><span>02</span><h2>Membership</h2><p>Access role plus all-locations or selected-location scope inside one workspace.</p></article>
-            <article><FileClock aria-hidden="true" /><span>03</span><h2>Staff profile</h2><p>Workplace-specific job details, scheduling context, and permitted operational records.</p></article>
-          </div>
-          <div className="security-caution">
-            <strong>Operational care still matters.</strong>
-            <p>Private data should stay out of public screenshots and casual exports. Share CSV files only through approved channels, and configure native push delivery only with valid deployment credentials.</p>
+          <p className="micro-label">Privacy starts with scope</p>
+          <h2>Three records. One intentional boundary.</h2>
+          <div className="security-boundary-grid">
+            <article><span>01</span><h3>Account</h3><p>Personal sign-in, verification, recovery and device sessions.</p></article>
+            <article><span>02</span><h3>Membership</h3><p>Access role and workplace scope inside one workspace.</p></article>
+            <article><span>03</span><h3>Staff profile</h3><p>Job details, scheduling context and permitted operational records.</p></article>
           </div>
         </Container>
       </section>
 
-      <DarkCtaPanel title="Map access to the way responsibility already works." body="We’ll use your roles and workplace structure to make the security conversation concrete." />
+      <section className="simple-cta-section"><Container><div className="simple-cta"><div><h2>Make room for<br />better service.</h2><p>See how ShiftChef fits the way your team works.</p></div><ButtonLink href="/contact" variant="secondary">Book a demo</ButtonLink></div></Container></section>
     </>
   );
 }

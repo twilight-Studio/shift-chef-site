@@ -12,8 +12,9 @@ export function SiteFooter() {
             <Link href="/" aria-label="ShiftChef home" className="inline-flex rounded-xl">
               <BrandLockup inverse className="footer-brand" />
             </Link>
+            <h2 className="footer-tagline">Better shifts.<br />Better service.</h2>
             <p className="mt-5 text-base leading-7 text-hero-copy">
-              ShiftChef connects staffing decisions, service execution, communication, and review in one role-aware workspace.
+              Scheduling, service work and review in one role-aware workspace.
             </p>
           </div>
           {Object.entries(footerNavigation).map(([title, links]) => (
@@ -31,7 +32,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-base">
           <p>© {new Date().getFullYear()} ShiftChef. All rights reserved.</p>
-          <p>From roster to review, keep every service in sync.</p>
+          <p>Better shifts. Better service.</p>
         </div>
       </Container>
     </footer>

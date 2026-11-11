@@ -10,7 +10,7 @@ const panelId = (roleId: string) => `role-panel-${roleId}`;
 const subscribeToHydration = () => () => undefined;
 
 export function RoleTabs() {
-  const [activeRoleId, setActiveRoleId] = useState(roles[0].id);
+  const [activeRoleId, setActiveRoleId] = useState("manager");
   const isReady = useSyncExternalStore(subscribeToHydration, () => true, () => false);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -89,13 +89,27 @@ export function RoleTabs() {
             role="tabpanel"
             tabIndex={0}
           >
-            <div>
-              <p className="eyebrow text-lime">{role.name.toUpperCase()}</p>
-              <h3>{role.summary}</h3>
+            <div className="role-copy">
+              <h3>{role.name}</h3>
+              <p>{role.summary}</p>
+              <ul>
+                {role.focus.map((item) => <li key={item}>{item}</li>)}
+              </ul>
             </div>
-            <ul>
-              {role.focus.map((item) => <li key={item}>{item}</li>)}
-            </ul>
+            <div className="roster-preview" aria-label="Weekly roster preview">
+              <div className="roster-preview-head"><span>ShiftChef</span><small>Downtown</small></div>
+              <div className="roster-title"><div><h4>Weekly rota</h4><small>26 OCT – 1 NOV 2026 · LOCAL TIME</small></div><b>Draft</b></div>
+              <div className="roster-table">
+                <span>TEAM</span><span>MON 30</span><span>TUE 31</span><span>WED 01</span><span>THU 02</span><span>FRI 03</span>
+                {[
+                  "Elena Silva", "17:00–23:00", "17:00–23:00", "Available", "17:00–23:00", "17:00–23:00",
+                  "Jamie Lee", "17:00–23:00", "Available", "17:00–23:00", "17:00–23:00", "17:00–23:00",
+                  "Hassan Mirza", "Available", "17:00–23:00", "17:00–23:00", "17:00–23:00", "Available",
+                  "Open role", "Open shift", "Open shift", "Open shift", "Available", "Open shift",
+                ].map((value, index) => <i className={index % 6 === 0 ? "roster-person" : undefined} key={`${value}-${index}`}>{value}</i>)}
+              </div>
+              <p>Review open roles before publishing</p>
+            </div>
           </div>
         );
       })}
@@ -116,8 +130,8 @@ export function RoleTabs() {
 const faqTriggerId = (index: number) => `faq-trigger-${index}`;
 const faqPanelId = (index: number) => `faq-panel-${index}`;
 
-export function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+export function FaqAccordion({ defaultOpenIndex = null }: { defaultOpenIndex?: number | null }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex);
   const isReady = useSyncExternalStore(subscribeToHydration, () => true, () => false);
   const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
 

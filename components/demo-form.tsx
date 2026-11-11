@@ -107,7 +107,7 @@ export function DemoForm() {
           <input id="workEmail" type="email" autoComplete="email" aria-invalid={Boolean(errors.workEmail)} aria-describedby={errors.workEmail ? "workEmail-error" : undefined} {...register("workEmail")} />
           <FieldError id="workEmail-error" message={errors.workEmail?.message} />
         </div>
-        <div className="form-field form-field-wide">
+        <div className="form-field">
           <label htmlFor="organization">Organization name</label>
           <input id="organization" autoComplete="organization" aria-invalid={Boolean(errors.organization)} aria-describedby={errors.organization ? "organization-error" : undefined} {...register("organization")} />
           <FieldError id="organization-error" message={errors.organization?.message} />
@@ -128,7 +128,7 @@ export function DemoForm() {
           </select>
           <FieldError id="workplaces-error" message={errors.workplaces?.message} />
         </div>
-        <div className="form-field form-field-wide">
+        <div className="form-field">
           <label htmlFor="teamSize">Approximate team size</label>
           <select id="teamSize" data-field="teamSize" aria-invalid={Boolean(errors.teamSize)} aria-describedby={errors.teamSize ? "teamSize-error" : undefined} className="form-select-trigger" {...register("teamSize")}>
             <option value="">Choose a range</option>
